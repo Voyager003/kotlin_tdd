@@ -3,12 +3,20 @@ package bowling
 import ex.bowling.Game
 import org.junit.jupiter.api.Test
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.BeforeEach
 
 
 class BowlingGameTest {
+
+    lateinit var game: Game
+
+    @BeforeEach
+    fun setUp() {
+        game = Game() // SUT 초기화
+    }
+
     @Test
     fun `gutter game`() {
-        val game = Game()
 
         repeat(20) {
             game.roll(0)
@@ -19,7 +27,6 @@ class BowlingGameTest {
 
     @Test
     fun `all ones`() {
-        val game = Game()
 
         repeat(20) {
             game.roll(1)
